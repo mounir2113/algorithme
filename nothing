@@ -4,7 +4,6 @@
 int main()
 {
     int length =10 ;
-    std::cout<<"Hello World \n";
     int i , j , temp;
     int a[length/2] , b[length/2] , c[6];
     
@@ -36,15 +35,7 @@ int main()
         }
         
         
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     for( i=0 ; i<length/2; i++){
         if(i<length/2){ std::cout<<a[i] <<"\n" ;}
         //  if(i>=length/2){
