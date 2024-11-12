@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+void readArray(int arr[], int N) {
+    cout << "Enter " << N << " integers: ";
+    for (int i = 0; i < N; i++) {
+        cin >> arr[i];
+    }
+}
+
+void findMinMax(const int arr[], int N, int &minVal, int &minIdx, int &maxVal, int &maxIdx) {
+    minVal = arr[0];
+    maxVal = arr[0];
+    minIdx = 0;
+    maxIdx = 0;
+
+    for (int i = 1; i < N; i++) {
+        if (arr[i] < minVal) {
+            minVal = arr[i];
+            minIdx = i-1;
+        }
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+            maxIdx = i-1;
+        }
+    }
+}
+
+void sortArray(int arr[], int N) {
+    for (int i = 0; i < N - 1; i++) {
+        for (int j = i + 1; j < N; j++) {
+            if (arr[i] > arr[j]) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+}
+
+void displayResults(const int arr[], int N, int minVal, int minIdx, int maxVal, int maxIdx) {
+    cout << "Sorted array: ";
+    for (int i = 0; i < N; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << "\nMinimum value: " << minVal << " at index " << minIdx << endl;
+    cout << "Maximum value: " << maxVal << " at index " << maxIdx << endl;
+}
+
+int main() {
+    const int N = 5;
+    int arr[N];
+    int minVal, minIdx, maxVal, maxIdx;
+
+    readArray(arr, N);
+    findMinMax(arr, N, minVal, minIdx, maxVal, maxIdx);
+    sortArray(arr, N);
+    displayResults(arr, N, minVal, minIdx, maxVal, maxIdx);
+
+    return 0;
+}
